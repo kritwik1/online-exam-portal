@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Registeration Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+  <h1 > Registration Form</h1>
+</div>
+  <div class="container">
+    <div class="jumbotron">
+
+
+    <form   name="registration" method="post" action="register.php"  onsubmit=" return formValidation();" >
+        <table  class="table"border="1" >
+            <tr>
+                <td><label for="name">Name</label></td>
+                <td><input type="text" name="name" id="name" required></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Gender</label></td>
+                <td><input type="radio" name="gender" value="Male"  required>Male<br>
+                <input type="radio" name="gender" value="Female"  required>Female<br>
+                <input type="radio" name="gender" value="Other"  required>Other<br>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="uname">Enter valid email</label></td>
+                <td><input name="uname" type="email" id="uname" required></input></td>
+            </tr>
+            <tr>
+                <td><label for="pass">Password</label></td>
+                <td><input name="pass" type="password" id="pass" required></input></td>
+            </tr>
+            <tr>
+                <td><label for="address">Address(Optional*)</label></td>
+                <td><textarea row="5" cols="50" name="address"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="contact">Contact</label></td>
+                <td><input name="contact" type="text" id="contact" required></input></td>
+            </tr>
+            <tr>
+                <td><input  class="btn btn-primary" type="submit" value="Submit"/>
+                <td><input  class="btn btn-danger" type="reset" value="Reset"/>
+            </tr>
+        </table>
+    </form>
+  </div>
+
+</div>
+    <script type="text/javascript">
+    function formValidation()
+    {
+    var uname = document.registration.name;
+    var passs=document.registration.pass;
+    var mobi=document.registration.contact;
+    var mx=7;
+    var phn='^[0-9]+$';
+    var letters =  /^[a-zA-Z ]+$/;
+    if(uname.value.match(letters)  &&  mobi.value.match(phn) && passs.value.length>mx)
+    {
+    return true;
+    }
+    else
+    {
+    alert('Name must have alphabet characters only,Password must contain more than 7 Characters and Contact contain integers Please check your form!');
+    uname.focus();
+    return false;
+    }
+    }
+
+
+
+
+    </script>
+    <br>
+    <a  class="btn btn-warning" href='loginuser.php'>Login</a>
+    <br>
+    <br>
+    <a class="btn btn-info" href='home.html'>GO BACK</a>
+</body>
+</html>
